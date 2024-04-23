@@ -13,8 +13,8 @@ export const Card: React.FC<TodoData> = ({ id, title, views }) => {
   };
   return (
     <div>
-      <h1 className="text-white">{title}</h1>
-      <p className="text-white">{views}</p>
+      <h1 className="">{title}</h1>
+      <p className="">{views}</p>
       <button onClick={deleteItems}>delete</button>
     </div>
   );
