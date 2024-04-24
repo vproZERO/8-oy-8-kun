@@ -30,28 +30,25 @@ const deleteData = async (id: number): Promise<{}> => {
   }
 };
 
-const postTodos = async (e: FormData) => {
+const postTodos = async (e:FormData) => {
   try {
-    const title = e.get("title");
-    const views = e.get("views");
-      
-    const res = await fetch(`http://localhost:5000/posts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    const title = e.get('title');
+    const views = e.get('views');
+    const res = await fetch('http://localhost:5000/posts',{
+      headers:{
+        'Content-Type': 'application/json',
       },
-
-      body: JSON.stringify({
-        title,
-        views,
-      }),
+      method:"POST",
+      body:JSON.stringify({title,views}),
     });
-
     const response = await res.json();
+    revalidateTag('todos')///revalidateTag
     return response;
+
   } catch (error) {
-    throw new Error("error");
+    
+    throw new Error('Failed to post data');
   }
-};
+}
 
 export { getData, deleteData, postTodos };

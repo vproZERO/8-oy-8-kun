@@ -15,7 +15,7 @@ export const Card: React.FC<TodoData> = ({ id, title, views }) => {
     <div>
       <h1 className="">{title}</h1>
       <p className="">{views}</p>
-      <button onClick={deleteItems}>delete</button>
+      <button className="py-1 px-2 rounded bg-red-600 text-white mb-10" onClick={deleteItems}>delete</button>
     </div>
   );
 };
